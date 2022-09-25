@@ -49,7 +49,7 @@ def newton(a, b, e):
             return
         print(b) 
         b = b - func(b)/first_direvative(b)
-        if(abs(func(b)) < e):
+        if(abs(func(b)) < e or abs(a-b) < e):
             return b
         
 
