@@ -35,7 +35,7 @@ def jakobi(A, B, e):
             for j in range(len(A[i])):
                 if i == j:
                     continue
-                b -= X[j]*A[i][j]
+                b -= Xp[j]*A[i][j]
             X[i] = b/A[i][i]
         max = abs(X[0] - Xp[0])
         for i in range(1, len(X)):
