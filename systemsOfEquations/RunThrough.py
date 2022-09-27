@@ -10,6 +10,24 @@ def runThrough(A, B):
 
         x_i = x_{i+1}*U_i + V_i
 
+        x_{i-1} = x_i*U_{i-1} + V_{i-1}
+
+        a_i*(x_i*U_{i-1} + V_{i-1}) + b_i*x_i + c_i*x_{i+1} = d_i
+        
+        x_i*(a_i*U_{i-1} + b_i) = d_i - c_i*x_{i+1} - a_i*V_{i-1}
+        
+        x_i = (d_i - c_i*x_{i+1} - a_i*V_{i-1})/(a_i*U_{i-1} + b_i)
+
+        Forward traversal:
+
+        U_i = -c_i/(a*U_{i-1} + b_i)
+        
+        V_i = (d_i - a_i*V_{i-1})/(a_U{i-1} + b_i)
+        
+        Backward traversal:
+        
+        x_i = x_{i+1}*U_i + V_i
+
     """ 
     
     U[0] = -A[0][2]/A[0][1]
