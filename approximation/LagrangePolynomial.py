@@ -39,22 +39,37 @@ def lagrange(X, Y):
 
     return final_koefs
 
-def printLagrange(Lk):
-    if(len(Lk) == 1):
-        print("L_1(x) = {}".format(Lk[0]))
+def printLagrange(L):
+    print("L_{}(x) = ".format(len(L)-1), end = '')
+    if (len(L) == 1):
+        print(L[0])
         return
-    print("L_{}(x) = {:.2f}*x^{}".format(len(Lk)-1,Lk[len(Lk)-1], len(Lk)-1), end=' ')
-    for i in range(len(Lk)-2, 0, -1):
-        if(Lk[i] == 0):
-            continue
-        elif(Lk[i] > 0):
-            print("+ {:.2f}*x^{}".format(Lk[i], i), end=' ')
+    if L[len(L)-1] == 1:
+        print("x^{}".format(len(L)-1), end=' ')
+    elif(L[len(L)-1] == -1):
+        print("-x^{}".format(len(L)-1), end=' ')
+    elif(L[0] != 0):
+        if(L[0] > 0):
+            print("{:.2f}*x^{}".format(L[len(L)-1], len(L)-1), end=' ')
         else:
-            print("- {:.2f}*x^{}".format(-Lk[i], i), end=' ')
-    if(Lk[0] > 0):
-        print("+ {}".format(Lk[0]))
-    elif(Lk[0] < 0):
-        print("- {}".format(-Lk[0]))
+            print("-{:.2f}*x^{}".format(-L[len(L)-1], len(L)-1), end=' ')
+    for i in range(len(L)-2, 0, -1):
+        if (L[i] == 0):
+            continue
+        elif (L[i] > 0):
+            if L[i] == 1:
+                print("+ x^{}".format(i), end=' ')
+            else:
+                print("+ {:.2f}*x^{}".format(L[i], i), end=' ')
+        else:
+            if (L[i] == -1):
+                print("- x^{}".format(i), end=' ')
+            else:
+                print("- {:.2f}*x^{}".format(-L[i], i), end=' ')
+    if (L[0] > 0):
+        print("+ {}".format(L[0]))
+    elif (L[0] < 0):
+        print("- {}".format(-L[0])) 
 
 def main():
     X = [-1, 0, 0.5, 1]
