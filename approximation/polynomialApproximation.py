@@ -2,7 +2,7 @@ import numpy as np
 import math
 from matplotlib import pyplot as plt
 
-def accuracuy(X,Y,V):
+def accuracy(X,Y,V):
     total = 0
     n = len(X)
     m = len(V)
