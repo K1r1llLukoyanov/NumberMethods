@@ -52,7 +52,7 @@ def polynomial(X, Y, n):
         Ys.append(0)
         for j in range(m):
             Ys[i] += V[j]*x**(n-j)
-    accuracuy(X, Y, V)
+    accuracy(X, Y, V)
     plt.plot(Xs, Ys)
     plt.scatter(X, Y)
     plt.grid()
