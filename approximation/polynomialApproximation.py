@@ -46,7 +46,7 @@ def polynomial(X, Y, n):
             sum += V[j]*U[i][j]
         V[i] = (B[i] - sum)/U[i][i]
 
-    Xs = np.linspace(X[0], X[nx-1], 1000)
+    Xs = np.linspace(min(X), max(X), 1000)
     Ys = []
     for i, x in enumerate(Xs):
         Ys.append(0)
@@ -59,9 +59,9 @@ def polynomial(X, Y, n):
     plt.show()
 
 def main():
-    X = [-2, -1, 0, 1, 2]
-    Y = [6, 2, -1, -2, -1]
-    polynomial(X, Y, 4)
+    X = [7.6, 7.2, 6.8, 13.4, 20.1, 12.3, 4.5, 4.6, 4.7, 12.5, 20.2, 14.9, 9.9, 12.0]
+    Y = [27.2, 20.3, 13.4, 16.5, 19.7, 20.8, 21.9, 20.2, 18.7, 20.9, 23.0, 21.1, 19.0, 23.9]
+    polynomial(X, Y, 3)
 
 if __name__ == "__main__":
     main()
